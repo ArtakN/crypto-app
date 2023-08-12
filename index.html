@@ -3,24 +3,95 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="./css/style.css">
    <title>Crypto</title>
 </head>
 <body>
    <div class="wrapper">
       <header class="header">
          <div class="header__container">
-            <p><a href="index.html" class="header__logo"><img src="img/logo.png" alt="logo">Logo</a></p>
+            <p class="header__logo"><a href="index.html"">CryptoCap</a></p>
             <nav class="header__menu">
-               menu
+               <ul class="header__menuList">
+                  <li class="header__menuItem">
+                    <a href="#home">Home</a></li>
+                  <li class="header__menuItem">
+                    <a href="#market">Market</a></li>
+                  <li class="header__menuItem">
+                    <a href="#learn">Learn</a></li>
+                  <li class="header__menuItem">
+                     <a href="#about">About</a></li>
+               </ul>
             </nav>
+            <div class="header__toggle"><img src="./img/icons/moon_dark.png" alt="Dark mode icon"></div>
          </div>
       </header>
       <main class="main">
-         <section class="main__">section</section>
-         <section class="main__">section</section>
-         <section class="main__">section</section>
-         <section class="main__">section</section>
+         <section class="main__home home" id="home">
+            <div class="home__container">
+               <div class="home__info">
+                  <h1 class="home__title">Build Your Crypto Portfolio Here</h1>
+                  <p class="home__desc">At CryptoCap, you can build a good portfolio and learn <br> best practices about cryptocurrency.</p>
+               </div>
+               <div class="home__trends">      
+               </div>
+            </div>
+         </section>
+         <section class="main__market market" id="market">
+            <div class="market__container">
+               <h2 class="market__title">
+                  Market Update
+               </h2>
+               <div class="market__list">
+                  <div class="market__listHeader">
+                     <div>#</div>
+                     <div>Name</div>
+                     <div>Price</div>
+                     <div>24h Change</div>
+                     <div>Marekt Cap</div>
+                     <div>Stats</div>
+                  </div>
+                  <ul class="market__listItmes">
+                  </ul>
+               </div>
+               <div class="market__pag">
+                  <ul class="market__pagList">
+                     <li class="market__pagItem">1</li>
+                     <li class="market__pagItem">2</li>
+                     <li class="market__pagItem">3</li>
+                     <li class="market__pagItem">4</li>
+                     <li class="market__pagItem">5</li>
+                  </ul>
+               </div>
+            </div>
+         </section>
+         <section class="main__learn learn" id="learn">
+            <div class="learn__container">
+               <h2 class="learn__title">Learn About Cryptocurrency</h2>
+               <p class="learn__subTitle">Learn all about cryptocurrency to start investing</p>
+               <div class="learn__articleBlock">
+               </div>
+            </div>
+         </section>
+         <section class="main__about about" id="about">
+            <div class="about__container">
+               <h2 class="about__title">About The Project</h2>
+               <div class="about__infoBlock">
+                  <div class="about__text">
+                     <p>This crypto portfolio web app is a pet project that I created to showcase my skills and understanding of various technologies. It is one of several projects that I have worked on, and you can view my full portfolio here.</p>
+                     <p>I built this app using the following technologies:
+                        <ul>
+                           <li>HTML</li>
+                           <li>CSS (SCSS)</li>
+                           <li>Vanilla JS</li>
+                        </ul>
+                     </p>
+                     <p>So far, I have completed the Home, Market, and Learn sections of the app, providing users with the ability to track multiple cryptocurrencies, view market data, and learn about investing in crypto. I am continuously working to improve the app and plan to add new functionality in the future.</p>
+                  </div>
+                  <img class="about__img" src="./img/tech_stech.png" alt="Teck stech image">
+               </div>
+            </div>
+         </section>
       </main>
       <footer class="footer">
          <div class="footer__container">
@@ -28,6 +99,6 @@
          </div>
       </footer>
    </div>
-   <script src="index.js"></script>
+   <script src="index.js" type="module"></script>
 </body>
 </html>

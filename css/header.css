@@ -1,0 +1,19 @@
+.header {
+  border: 1px solid #000;
+  height: 90px;
+}
+.header__container {
+  border: 1px solid red;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+.header__menuList {
+  display: flex;
+  gap: 40px;
+}
+.header__menuItem {
+  color: red;
+  font-weight: 500;
+}
