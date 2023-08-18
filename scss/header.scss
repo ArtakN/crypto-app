@@ -23,6 +23,10 @@
    // .header__logo
 
    &__logo {
+      color: $titleColor;
+      font-family: Raleway;
+      font-size: 24px;
+      font-weight: 700;
    }
 
    // .header__menu

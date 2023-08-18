@@ -57,7 +57,7 @@ fetch("https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&que
             throw Error("I'm an error!")
       })
       .catch(err => console.error(err))
-/* there is a .catch() method that will only run if somewhere in our then blocks
+/* here is a .catch() method that will only run if somewhere in our then blocks
    we have an error at programmer types Promise.reject()
    
    for better user experience we can do like this

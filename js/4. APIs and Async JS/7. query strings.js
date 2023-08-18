@@ -1,11 +1,11 @@
 /* query strings - a way to filter results
 
-   for example in bicycle shop we get all bicycles, but we want to
+   for example from bicycle shop server we get all bicycles, but we want to
    filter and see a list of all mountain bicycles.
 
       /bikes?type=mountain
 
-   more than one filter: we want to get a list of mountain bicycles
+   for more than one filter we use &: we want to get a list of mountain bicycles
    with track brand.
 
       /bikes?type=mountain&brand=trek

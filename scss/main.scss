@@ -72,6 +72,7 @@
 		// .trend__logo
 
 		&__logo {
+			width: 40px;
 		}
 
 		// .trend__ticker
@@ -124,8 +125,7 @@
 }
 
 .market {
-	border: 1px solid #000;
-	padding: 120px 0;
+	padding: 100px 0;
 
 	// .market__container
 
@@ -287,7 +287,7 @@
 }
 
 .learn {
-	padding: 120px 0;
+	padding: 100px 0;
 
 	// .learn__container
 
@@ -401,7 +401,7 @@
 }
 
 .about {
-	border: 1px solid #ad1616;
+	padding: 100px 0 200px 0;
 
 	// .about__container
 
@@ -411,20 +411,59 @@
 	// .about__title
 
 	&__title {
+		margin-bottom: 40px;
 	}
 
 	// .about__infoBlock
 
 	&__infoBlock {
+		display: flex;
+		gap: 40px;
+		text-align: justify;
 	}
 
 	// .about__text
 
 	&__text {
+		line-height: 150%;
+		p:first-child {
+			margin-bottom: 32px;
+
+			a {
+				text-decoration: underline;
+				color: $titleColor;
+			}
+		}
+		P:last-child {
+			margin-top: 32px;
+		}
+
+		p:nth-child(2) {
+			font-weight: 500;
+		}
+	}
+
+	// .about__techList
+
+	&__techList {
+		margin-top: 16px;
+		margin-left: 32px;
+		
+		li {
+			display: flex;
+			padding-block: 4px;
+			align-items: center;
+			gap: 8px;
+
+			img {
+				width: 32px
+			}
+		};
 	}
 
 	// .about__img
 
 	&__img {
+		width: 400px;
 	}
 }

@@ -4,9 +4,9 @@
 
    By default, the sort() method sorts the elements of an array in ascending (по возрастанию) order, based on their Unicode code point values.This means that the elements are first converted to strings, and then compared according to their sequences of UTF - 16 code units values1.
    
-   To sort the elements of the array by their numeric values, we need provide a custom comparison function as an argument to the sort() method.This function should take two arguments, a and b, and return a value that indicates their relative order.
+   To sort the elements of the array by their numeric values, we need provide a custom comparison function as an argument to the sort() method. This function should take two arguments, a and b, and return a value that indicates their relative order.
 
-   If the function returns a negative value (if a - b < 0), a will be sorted before b. If it returns a positive value (a - , > 0), b will be sorted before a. If it returns 0 (a-b = 0), the order of a and b will not change. */
+   If the function returns a negative value (if a - b < 0), a will be sorted before b. If it returns a positive value (a - b > 0), b will be sorted before a. If it returns 0 (a-b = 0), the order of a and b will not change. */
 
 const numbers = [4, 2, 5, 1, 3];
 
@@ -49,7 +49,7 @@ function priceAsc(array) {
 
 // 2. The second way is to copy with slice() method
 function priceAsc(array) {
-   // we copy the original array with sliec() method
+   // we copy the original array with sliec() method. If slice method doesn't get parameters it returns a full copy of the array array
    const sortedArray = array.slice();
    sortedArray.sort((a, b) => a.price - b.price);
    return sortedArray;

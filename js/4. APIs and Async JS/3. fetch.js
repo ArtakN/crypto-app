@@ -15,7 +15,7 @@ fetch("https://dog.ceo/api/breeds/image/random")
 
 // we do the fetch request, to get a random image from the Dog API
 fetch("https://dog.ceo/api/breeds/image/random")
-   // then we parse the json response that we will get into js
+   // then we parse the json response to js
    .then(response => response.json())
    // then we get access to the data
    .then(data => {

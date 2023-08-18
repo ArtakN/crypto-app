@@ -29,8 +29,8 @@ async function handleClick() {
    deckId = data.deck_id
    console.log(deckId)
 }
-/***we can use await only on first level childrens methods of async parent function,
-    if there is another function inside async fanction and we want to use await inside the children function we need to write async for children function, and then we can use inside children async function await functions.  */
+/***we can use await only on first level childrens methods of async parent 
+   function, if there is another function inside async fanction and we want to use await inside the children function we need to write async for children function, and then we can use inside children async function await functions.  */
 
 // -----------------------------------------------------------------------------
 

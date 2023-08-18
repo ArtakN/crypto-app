@@ -107,11 +107,9 @@ fetch("https://apis.scrimba.com/jsonplaceholder/todos", {
       completed: false
    }),
    headers: {
-      "Content-Type": "application/json"             /* wtih Content-Type header
+      "Content-Type": "application/json"         /* wtih Content-Type header
       we indicate that there's JSON in the request body. without setting the 
-      Content-Type of json the server didn't know how to handle this request body 
-      but if we set it, server will parse the request from JSON to JS during adding
-      it to the database. */
+      Content-Type of json the server didn't know how to handle this request body but if we set it, server will parse the request from JSON to JS during adding it to the database. */
    }
 })
 
