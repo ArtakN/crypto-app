@@ -6321,11 +6321,12 @@ body {
 .trend__logo {
   width: 40px;
 }
-.trend__ticker {
+.trend__symbol {
   color: #ECF1F0;
   font-family: "Raleway";
   font-size: 18px;
   font-weight: 600;
+  text-transform: uppercase;
 }
 .trend__bottom {
   display: flex;
@@ -6393,6 +6394,23 @@ body {
 .market__listHeader {
   font-weight: 500;
 }
+.market__nameTitile, .market__priceTitle, .market__changeTitle, .market__capTitle {
+  cursor: pointer;
+}
+.market__sortedTitle::after {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 4px 0 4px;
+  border-color: transparent;
+  border-top-color: inherit;
+  margin-left: 5px;
+}
+.market__sortedTitle-asc::after {
+  transform: rotate(180deg);
+}
 .market__listItem {
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -6408,6 +6426,9 @@ body {
   font-family: Raleway;
   font-size: 18px;
   font-weight: 500;
+}
+.market__itemSymbol {
+  text-transform: uppercase;
 }
 .market__itemChange_positive {
   color: #0FAE96;

@@ -1,110 +1,218 @@
-import { articles } from './data.js';
+import { articles } from './store.js';
+import { fetchedData } from './store.js';
+
+const trendData = [...fetchedData]
 
 const trendBlock = document.querySelector('.home__trends')
 const marketBlock = document.querySelector('.market__listItmes')
+const nameColumnTitle = document.querySelector('.market__nameTitle')
+const priceColumnTitle = document.querySelector('.market__priceTitle')
+const changeColumnTitle = document.querySelector('.market__changeTitle')
+const marketCapColumnTitle = document.querySelector('.market__capTitle')
+const paginationItems = document.querySelectorAll('.market__pagItem')
 
-const pagItems = document.querySelectorAll('.market__pagItem')
 
-let coinsData = []
+function formatPrice(price) {
+   return price.toLocaleString('en-US', {    // форматирует цифри как 1,234.00
+      minimumFractionDigits: 5,
+      maximumFractionDigits: 5,
+   })
+}
+
+
+function formatPriceChange(priceChange) {
+   return priceChange.toFixed(2)
+}
+
+function formatCap(cap) {
+   return cap.toLocaleString('en-US', {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+   })
+}
+
+function generateTrendHTML(item) {
+
+   const formattedPrice = formatPrice(item.current_price)
+   const formattedPriceChange = formatPriceChange(item.price_change_percentage_24h)
+
+   return `
+   <div class="trend">
+   <div class="trend__top">
+      <img src=${item.image} alt="Coin Logo" class="trend__logo">
+      <p class="trend__symbol">${item.symbol}</p>
+      <p class="trend__name">${item.name}</p>
+   </div>
+   <div class="trend__bottom">
+      <div>
+         <p class="trend__price">$${formattedPrice}</p>
+         <p class="trend__rate${item.price_change_percentage_24h >= 0 ?
+         '_positive' :
+         '_negative'}">
+            ${formattedPriceChange}%
+         </p>
+      </div>
+      <img src=${item.price_change_percentage_24h >= 0 ?
+         './img/icons/priceUp_icon.png' :
+         './img/icons/priceDown_icon.png'
+      } alt="Price rise image">
+   </div>
+</div>
+   `;
+}
+
+function generateMarketHTML(item, index, startIndex) {
+
+   const formattedPrice = formatPrice(item.current_price);
+   const formattedCap = formatCap(item.market_cap);
+   const formattedPriceChange = formatPriceChange(item.price_change_percentage_24h);
+
+   return `
+     <li class="market__listItem">
+       <div class="market__itemNumber">${index + startIndex + 1}</div>
+       <div class="market__itemName">
+         <img src=${item.image} alt="Coin logo">
+         <span>${item.name}</span>
+         <span class='market__itemSymbol'>${item.symbol}</span>
+       </div>
+       <div class="market__itemPrice">$${formattedPrice}</div>
+       <div class="market__itemChange${item.price_change_percentage_24h >= 0 ? '_positive' : '_negative'}">${formattedPriceChange}%</div>
+       <div class="market__itemCap">$${formattedCap}</div>
+       <div class="market__itemStat">
+         <img src=${item.price_change_percentage_24h >= 0 ?
+         './img/icons/priceUp_icon.png' :
+         './img/icons/priceDown_icon.png'}
+         alt = "Coin stat">
+       </div >
+     </li >
+   `;
+}
 
 function updatePageContent(pageNumber = 1) {
 
-   const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=1&sparkline=false`
+   trendBlock.innerHTML = '';
+   marketBlock.innerHTML = '';
 
-   // Make a fetch request to the API endpoint
-   fetch(url)
-      .then(res => res.json())
-      .then(data => {
+   const startIndex = (pageNumber - 1) * 10;
+   const endIndex = startIndex + 10;
 
-         coinsData = data
+   // render trend block
+   trendData.sort((a, b) => b - a).slice(0, 4).forEach((item) => {
+      trendBlock.innerHTML += generateTrendHTML(item)
+   })
 
-         // Clear the content of the trendBlock and marketBlock elements
-         trendBlock.innerHTML = ''
-         marketBlock.innerHTML = ''
-
-         const startIndex = (pageNumber - 1) * 10
-         const endIndex = startIndex + 10
-
-         // Loop through the first 4 items in the data array and generate HTML content for the trendBlock element
-         coinsData.slice().sort((a, b) => b - a).slice(0, 4).forEach(item => {
-            const formattedPrice = item.current_price.toLocaleString('en-US', {
-               minimumFractionDigits: 2,
-               maximumFractionDigits: 2,
-            })
-
-            const formattedRate = item.price_change_percentage_24h.toFixed(2)
-
-            trendBlock.innerHTML += `
-         <div class="trend">
-            <div class="trend__top">
-               <img src=${item.image} alt="Coin Logo" class="trend__logo">
-               <p class="trend__ticker">${item.symbol}</p>
-               <p class="trend__name">${item.name}</p>
-            </div>
-            <div class="trend__bottom">
-               <div>
-                  <p class="trend__price">$${formattedPrice}</p>
-                  <p class="trend__rate${item.price_change_percentage_24h >= 0 ?
-                  '_positive' :
-                  '_negative'}">
-                     ${formattedRate}%
-                  </p>
-               </div>
-               <img src=${item.price_change_percentage_24h >= 0 ?
-                  './img/icons/priceUp_icon.png' :
-                  './img/icons/priceDown_icon.png'
-               } alt="Price rise image">
-            </div>
-         </div>
-      `
-         })
-
-         // Loop through all items in the data array and generate HTML content for the marketBlock element
-         coinsData.slice(startIndex, endIndex).forEach((item, index) => {
-            const formattedPrice = item.current_price.toLocaleString('en-US', {
-               minimumFractionDigits: 2,
-               maximumFractionDigits: 2,
-            })
-
-            const formattedCap = item.market_cap.toLocaleString('en-US', {
-               minimumFractionDigits: 0,
-               maximumFractionDigits: 0,
-            })
-
-            const formattedRate = item.price_change_percentage_24h.toFixed(2)
-
-            marketBlock.innerHTML += `
-         <li class="market__listItem">
-            <div class="market__itemNumber">${index + startIndex + 1}</div>
-            <div class="market__itemName">
-               <img src=${item.image} alt="Coin logo">
-               <span>${item.name}</span>
-               <span>${item.symbol}</span>
-            </div>
-            <div class="market__itemPrice">$${formattedPrice}</div>
-            <div class="market__itemChange${item.price_change_percentage_24h >= 0 ? '_positive' : '_negative'}">${formattedRate}%</div>
-            <div class="market__itemCap">$${formattedCap}</div>
-            <div class="market__itemStat">
-               <img src=${item.price_change_percentage_24h >= 0 ?
-                  './img/icons/priceUp_icon.png' :
-                  './img/icons/priceDown_icon.png'} 
-               alt = "Coin stat">
-            </div >
-         </li >
-      `
-         })
-      })
+   // render market block
+   fetchedData.slice(startIndex, endIndex).forEach((item, index) => {
+      marketBlock.innerHTML += generateMarketHTML(item, index, startIndex)
+   })
 }
 
 updatePageContent()
 
-pagItems.forEach(item => {
+
+// sort coins by name
+let isNameSortedAsc = false
+
+function sortByName() {
+   priceColumnTitle.classList.remove('market__sortedTitle', 'market__sortedTitle-asc')
+   changeColumnTitle.classList.remove('market__sortedTitle', 'market__sortedTitle-asc')
+   marketCapColumnTitle.classList.remove('market__sortedTitle', 'market__sortedTitle-asc')
+
+   if (isNameSortedAsc) {
+      fetchedData.sort((a, b) => a.name.localeCompare(b.name))
+      nameColumnTitle.classList.add('market__sortedTitle', 'market__sortedTitle-asc')
+   } else {
+      fetchedData.sort((a, b) => b.name.localeCompare(a.name))
+      nameColumnTitle.classList.add('market__sortedTitle')
+      nameColumnTitle.classList.remove('market__sortedTitle-asc')
+   }
+   isNameSortedAsc = !isNameSortedAsc
+
+   updatePageContent()
+}
+
+nameColumnTitle.addEventListener('click', () => sortByName())
+
+
+// sort coins by price
+let isPriceSortedAsc = false
+
+function sortByPrice() {
+   nameColumnTitle.classList.remove('market__sortedTitle', 'market__sortedTitle-asc')
+   changeColumnTitle.classList.remove('market__sortedTitle', 'market__sortedTitle-asc')
+   marketCapColumnTitle.classList.remove('market__sortedTitle', 'market__sortedTitle-asc')
+
+   if (isPriceSortedAsc) {
+      fetchedData.sort((a, b) => a.current_price - b.current_price)
+      priceColumnTitle.classList.add('market__sortedTitle', 'market__sortedTitle-asc')
+   } else {
+      fetchedData.sort((a, b) => b.current_price - a.current_price)
+      priceColumnTitle.classList.add('market__sortedTitle')
+      priceColumnTitle.classList.remove('market__sortedTitle-asc')
+   }
+   isPriceSortedAsc = !isPriceSortedAsc
+   updatePageContent()
+}
+
+priceColumnTitle.addEventListener('click', () => sortByPrice())
+
+
+// sort coins by change
+let isChangeSortedAsc = false
+
+function sortByChange() {
+   nameColumnTitle.classList.remove('market__sortedTitle', 'market__sortedTitle-asc')
+   priceColumnTitle.classList.remove('market__sortedTitle', 'market__sortedTitle-asc')
+   marketCapColumnTitle.classList.remove('market__sortedTitle', 'market__sortedTitle-asc')
+
+   if (isChangeSortedAsc) {
+      fetchedData.sort((a, b) => a.price_change_percentage_24h - b.price_change_percentage_24h)
+      changeColumnTitle.classList.add('market__sortedTitle', 'market__sortedTitle-asc')
+
+   } else {
+      fetchedData.sort((a, b) => b.price_change_percentage_24h - a.price_change_percentage_24h)
+      changeColumnTitle.classList.add('market__sortedTitle')
+      changeColumnTitle.classList.remove('market__sortedTitle-asc')
+   }
+   isChangeSortedAsc = !isChangeSortedAsc
+   updatePageContent()
+}
+
+changeColumnTitle.addEventListener('click', () => sortByChange())
+
+
+// sort coins by market cap
+let isMarketCapSortedAsc = false
+
+function sortByMarketCap() {
+   nameColumnTitle.classList.remove('market__sortedTitle', 'market__sortedTitle-asc')
+   priceColumnTitle.classList.remove('market__sortedTitle', 'market__sortedTitle-asc')
+   changeColumnTitle.classList.remove('market__sortedTitle', 'market__sortedTitle-asc')
+
+   if (isMarketCapSortedAsc) {
+      fetchedData.sort((a, b) => a.market_cap - b.market_cap)
+      marketCapColumnTitle.classList.add('market__sortedTitle', 'market__sortedTitle-asc')
+   } else {
+      fetchedData.sort((a, b) => b.market_cap - a.market_cap)
+      marketCapColumnTitle.classList.add('market__sortedTitle')
+      marketCapColumnTitle.classList.remove('market__sortedTitle-asc')
+   }
+
+   isMarketCapSortedAsc = !isMarketCapSortedAsc
+   updatePageContent()
+}
+
+marketCapColumnTitle.addEventListener('click', () => sortByMarketCap())
+
+// pagination
+paginationItems.forEach(item => {
    item.addEventListener('click', () => {
       let pageNumber = item.textContent
 
       updatePageContent(pageNumber)
    })
 })
+
 
 
 // add header shadow on scroll
@@ -118,7 +226,7 @@ window.addEventListener('scroll', () => {
    }
 })
 
-// on click nav tabs add smooth effect during scroll 
+// on click nav tabs add smooth effect during scroll
 const navLinks = document.querySelectorAll('.nav-link');
 
 // Add a click event listener to each nav link

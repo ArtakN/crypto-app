@@ -75,13 +75,14 @@
 			width: 40px;
 		}
 
-		// .trend__ticker
+		// .trend__symbol
 
-		&__ticker {
+		&__symbol {
 			color: $titleColor;
 			font-family: 'Raleway';
 			font-size: 18px;
 			font-weight: 600;
+			text-transform: uppercase;
 		}
 
 		// .trend__name
@@ -189,6 +190,33 @@
 		font-weight: 500;
 	}
 
+	// .market__nameTitile ...
+	&__nameTitile, &__priceTitle, &__changeTitle, &__capTitle {
+		cursor: pointer;
+	}
+
+// .market__sortedTitle
+&__sortedTitle {
+   &::after {
+      content: '';
+      display: inline-block;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 5px 4px 0 4px;
+      border-color: transparent;
+      border-top-color: inherit;
+      margin-left: 5px;
+   }
+}
+
+// .market__sortedTitle-dsc 
+&__sortedTitle-asc {
+   &::after {
+      transform: rotate(180deg);
+   }
+}
+
 	// .market__listItem
 
 	&__listItem {
@@ -219,6 +247,11 @@
 		}
 	}
 
+	// .market__itemSymbol
+	&__itemSymbol {
+		text-transform: uppercase;
+	}
+	
 	// .market__itemPrice
 
 	&__itemPrice {
