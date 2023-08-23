@@ -227,7 +227,7 @@ window.addEventListener('scroll', () => {
 })
 
 // on click nav tabs add smooth effect during scroll
-const navLinks = document.querySelectorAll('.nav-link');
+const navLinks = document.querySelectorAll('.header__menuItem');
 
 // Add a click event listener to each nav link
 navLinks.forEach(link => {
