@@ -1,5 +1,7 @@
-import { articles } from './store.js';
 import { fetchedData } from './store.js';
+import { generateTrendHTML } from './trends.js'
+import { articles } from "./store";
+import './header.js'
 
 const trendData = [...fetchedData]
 
@@ -19,7 +21,6 @@ function formatPrice(price) {
    })
 }
 
-
 function formatPriceChange(priceChange) {
    return priceChange.toFixed(2)
 }
@@ -29,36 +30,6 @@ function formatCap(cap) {
       minimumFractionDigits: 0,
       maximumFractionDigits: 0,
    })
-}
-
-function generateTrendHTML(item) {
-
-   const formattedPrice = formatPrice(item.current_price)
-   const formattedPriceChange = formatPriceChange(item.price_change_percentage_24h)
-
-   return `
-   <div class="trend">
-   <div class="trend__top">
-      <img src=${item.image} alt="Coin Logo" class="trend__logo">
-      <p class="trend__symbol">${item.symbol}</p>
-      <p class="trend__name">${item.name}</p>
-   </div>
-   <div class="trend__bottom">
-      <div>
-         <p class="trend__price">$${formattedPrice}</p>
-         <p class="trend__rate${item.price_change_percentage_24h >= 0 ?
-         '_positive' :
-         '_negative'}">
-            ${formattedPriceChange}%
-         </p>
-      </div>
-      <img src=${item.price_change_percentage_24h >= 0 ?
-         './img/icons/priceUp_icon.png' :
-         './img/icons/priceDown_icon.png'
-      } alt="Price rise image">
-   </div>
-</div>
-   `;
 }
 
 function generateMarketHTML(item, index, startIndex) {
@@ -213,37 +184,6 @@ paginationItems.forEach(item => {
    })
 })
 
-
-
-// add header shadow on scroll
-const header = document.querySelector('.header')
-
-window.addEventListener('scroll', () => {
-   if (window.scrollY > 0) {
-      header.classList.add('header__shadow')
-   } else {
-      header.classList.remove('header__shadow')
-   }
-})
-
-// on click nav tabs add smooth effect during scroll
-const navLinks = document.querySelectorAll('.header__menuItem');
-
-// Add a click event listener to each nav link
-navLinks.forEach(link => {
-   link.addEventListener('click', event => {
-      // Prevent the default behavior of the link
-      event.preventDefault();
-
-      // Get the target element from the link's href attribute
-      const targetId = link.getAttribute('href');
-      const targetElement = document.querySelector(targetId);
-
-      // Scroll the target element into view with smooth behavior
-      targetElement.scrollIntoView({ behavior: 'smooth' });
-   });
-});
-
 // articles
 const articleBlock = document.querySelector('.learn__articleBlock')
 
@@ -258,3 +198,4 @@ articles.forEach(item => {
       </div>
    `
 })
+
