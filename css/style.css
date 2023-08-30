@@ -6394,8 +6394,11 @@ body {
 .market__listHeader {
   font-weight: 500;
 }
-.market__nameTitile, .market__priceTitle, .market__changeTitle, .market__capTitle {
+.market__nameTitle, .market__priceTitle, .market__changeTitle, .market__capTitle {
   cursor: pointer;
+}
+.market__nameTitle:hover, .market__priceTitle:hover, .market__changeTitle:hover, .market__capTitle:hover {
+  color: #ECF1F0;
 }
 .market__sortedTitle::after {
   content: "";

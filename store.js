@@ -13,7 +13,6 @@ async function fetchData(url) {
 
 export const fetchedData = await fetchData(API_URL)
 
-
 export const articles = [
    {
       id: 1,

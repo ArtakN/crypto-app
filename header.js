@@ -1,4 +1,3 @@
-
 // on click nav tabs add smooth effect during scroll
 const navLinks = document.querySelectorAll('.header__menuItem');
 

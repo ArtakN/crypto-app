@@ -191,8 +191,12 @@
 	}
 
 	// .market__nameTitile ...
-	&__nameTitile, &__priceTitle, &__changeTitle, &__capTitle {
+	&__nameTitle, &__priceTitle, &__changeTitle, &__capTitle {
 		cursor: pointer;
+
+		&:hover {
+			color: $titleColor;
+		}
 	}
 
 // .market__sortedTitle

@@ -1,8 +1,8 @@
 import { fetchedData } from './store.js';
 import { generateTrendHTML } from './trends.js'
-import { articles } from "./store";
+import { articles } from "./store.js";
 import './header.js'
-
+console.log(fetchedData)
 const trendData = [...fetchedData]
 
 const trendBlock = document.querySelector('.home__trends')
@@ -178,11 +178,18 @@ marketCapColumnTitle.addEventListener('click', () => sortByMarketCap())
 // pagination
 paginationItems.forEach(item => {
    item.addEventListener('click', () => {
-      let pageNumber = item.textContent
 
+      paginationItems.forEach(item => {
+         item.style.backgroundColor = ''
+      })
+      let pageNumber = item.textContent
+      item.style.backgroundColor = '#2C223B';
       updatePageContent(pageNumber)
    })
 })
+
+// set the background color of the first pagination item
+paginationItems[0].style.backgroundColor = '#2C223B';
 
 // articles
 const articleBlock = document.querySelector('.learn__articleBlock')
