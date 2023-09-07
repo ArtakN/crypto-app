@@ -80,14 +80,18 @@ function updatePageContent(pageNumber = 1) {
 
 updatePageContent()
 
+function resetColumnTitiles() {
+   nameColumnTitle.classList.remove('market__sortedTitle', 'market__sortedTitle-asc')
+   priceColumnTitle.classList.remove('market__sortedTitle', 'market__sortedTitle-asc')
+   changeColumnTitle.classList.remove('market__sortedTitle', 'market__sortedTitle-asc')
+   marketCapColumnTitle.classList.remove('market__sortedTitle', 'market__sortedTitle-asc')
+}
 
 // sort coins by name
 let isNameSortedAsc = false
 
 function sortByName() {
-   priceColumnTitle.classList.remove('market__sortedTitle', 'market__sortedTitle-asc')
-   changeColumnTitle.classList.remove('market__sortedTitle', 'market__sortedTitle-asc')
-   marketCapColumnTitle.classList.remove('market__sortedTitle', 'market__sortedTitle-asc')
+   resetColumnTitiles()
 
    if (isNameSortedAsc) {
       fetchedData.sort((a, b) => a.name.localeCompare(b.name))

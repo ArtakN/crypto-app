@@ -6188,6 +6188,9 @@ h6 {
 
 body {
   background: #11011E;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 
 .wrapper {
