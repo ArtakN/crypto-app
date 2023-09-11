@@ -1,19 +1,38 @@
 .header {
-  border: 1px solid #000;
   height: 90px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: #280132;
+}
+.header__shadow {
+  box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.15);
 }
 .header__container {
-  border: 1px solid red;
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 100%;
+}
+.header__logo {
+  color: #ecf1f0;
+  font-family: Raleway;
+  font-size: 24px;
+  font-weight: 700;
 }
 .header__menuList {
   display: flex;
   gap: 40px;
 }
 .header__menuItem {
-  color: red;
+  color: #ecf1f0;
   font-weight: 500;
+}
+.header__menuItem:hover {
+  color: #0fae96;
+}
+.header__toggle {
+  cursor: pointer;
 }

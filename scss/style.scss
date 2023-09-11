@@ -1,43 +1,34 @@
-
 // =============================================================================
 // ПОДКЛЮЧЕНИЕ ВСТРОЕННОЙ БИБЛИОТЕКИ
 
-@use "sass:math";
+@use 'sass:math';
 // =============================================================================
 
 // =============================================================================
-// МИКСИНЫ 
+// МИКСИНЫ
 
 // ***** Если не подключить этот файл, то в адаптиве пливучие значение не будут работать *****//
 
-@import "mixins";
+@import 'mixins';
 // =============================================================================
 
 // =============================================================================
-// ПОДКЛЮЧЕНИЕ ШРИФТОВ 
+// ПОДКЛЮЧЕНИЕ ШРИФТОВ
 
 // Подключение google шрифтов
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500;600;700&family=Roboto:wght@400;500&display=swap');
 
 // Подключение fontawsome icons
-@import "./fa_scss/fontawesome.scss";
-@import "./fa_scss/solid.scss";
-@import "./fa_scss/brands.scss";
+@import './fa_scss/fontawesome.scss';
+@import './fa_scss/solid.scss';
+@import './fa_scss/brands.scss';
 // =============================================================================
 
 // =============================================================================
-// НАСТРОЙКИ ШРИФТА ПО УМОЛЧАНИЮ 
+// НАСТРОЙКИ ШРИФТА ПО УМОЛЧАНИЮ
 
-// Создаем переменные и задаем параметры по умолчанию (те параметры, которые используются на макете больше всех). Эти переменные используются в обнуляющем стиле (null.scss) для тега body. 
-
-$fontFamily: 'Roboto';
-$fontWeight: 400;	
-$fontStyle: noraml;
-$lightHeight: normal;
-$fontSize: 1rem;		// По умолчанию размер шрифта в браузере 16px (1 rem).
-
-$mainColor: #B6B6B6;
-$titleColor: #ECF1F0;
+// Создаем переменные и задаем параметры по умолчанию (те параметры, которые используются на макете больше всех). Эти переменные используются в обнуляющем стиле (null.scss) для тега body.
+@import 'varibles';
 // =============================================================================
 
 // =============================================================================
@@ -50,17 +41,17 @@ $maxWidth: 1080;
 // Ширина ограничивающего контейнера (0 = нет ограничения) - ширина контента
 $maxWidthContainer: 1306;
 // Общий отступ у контейнера - отступы безопасности
-// (30 = по 15px слева и справа, 0 = нет отступа) - при сужения размера монитора контент не будет прилипать к монитору 
+// (30 = по 15px слева и справа, 0 = нет отступа) - при сужения размера монитора контент не будет прилипать к монитору
 $containerPadding: 48;
 
 // Ширина срабатывания первого брейкпоинта
 $containerWidth: $maxWidthContainer + $containerPadding;
 
 // Брейкпоинты
-$pc: em($containerWidth); 	// ПК, ноутбуки и некоторые планшеты в горизонтальном положении
-$tablet: em(991.98); 		// Планшеты и некоторые телефоны в горизонтальном положении
-$mobile: em(767.98); 		// Телефоны L
-$mobileSmall: em(479.98); 	// Телефоны S
+$pc: em($containerWidth); // ПК, ноутбуки и некоторые планшеты в горизонтальном положении
+$tablet: em(991.98); // Планшеты и некоторые телефоны в горизонтальном положении
+$mobile: em(767.98); // Телефоны L
+$mobileSmall: em(479.98); // Телефоны S
 
 // Тип адаптива:
 // 1 = отзывчивость (у контейнера нет брейкпоинтов),
@@ -71,15 +62,15 @@ $responsiveType: 2;
 // =============================================================================
 // ОБНУЛЕНИЕ ДЕФОЛТНЫХ СТИЛЕЙ ТЕГОВ
 
-@import "null";
+@import 'null';
 // =============================================================================
 
 // =============================================================================
-// СТИЛИ ТЕГА BODY 
+// СТИЛИ ТЕГА BODY
 
 body {
-	background: #11011E;
-	user-select: none;
+  background: #11011e;
+  user-select: none;
 }
 // =============================================================================
 
@@ -87,18 +78,18 @@ body {
 // ОБОЛОЧКА WRAPPER
 
 .wrapper {
-	min-height: 100%;
-	display: flex;
-	flex-direction: column;
-	overflow: hidden;
-	// Прижимаем footer к низу экрана
-	> main {			
-		flex: 1 1 auto;	// разрешаем блоку main заполнять все свободное пространство родительского флекс-контейнера (wrapper), 
-	}							// в результате этого блок footer прижимается к нижней части экрана, если он есть
-	// Фикс для слайдеров
-	> * {
-		min-width: 0;
-	}
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  // Прижимаем footer к низу экрана
+  > main {
+    flex: 1 1 auto; // разрешаем блоку main заполнять все свободное пространство родительского флекс-контейнера (wrapper),
+  } // в результате этого блок footer прижимается к нижней части экрана, если он есть
+  // Фикс для слайдеров
+  > * {
+    min-width: 0;
+  }
 }
 // =============================================================================
 
@@ -108,61 +99,62 @@ body {
 /*	Стили будут применяться ко всем классам, содержащим *__container
 Например, header__container, main__container и т.д.	*/
 @if ($responsiveType==1) {
-	// Отзывчивая
-	[class*="__container"] { 	//	любой класс с "что то__container"	
-		@if ($maxWidthContainer>0) {
-			max-width: ($maxWidthContainer);
-			box-sizing: content-box;
-			margin: 0 auto;
-		}
-	  	@if ($containerPadding>0) {
-			padding: 0 pixToRem(math.div($containerPadding, 2));
-		}
-	}
+  // Отзывчивая
+  [class*='__container'] {
+    //	любой класс с "что то__container"
+    @if ($maxWidthContainer>0) {
+      max-width: ($maxWidthContainer);
+      box-sizing: content-box;
+      margin: 0 auto;
+    }
+    @if ($containerPadding>0) {
+      padding: 0 pixToRem(math.div($containerPadding, 2));
+    }
+  }
 } @else {
-	// По брейкпоинтам
-	[class*="__container"] {
-		margin: 0 auto;
-		@if ($maxWidthContainer>0) {
-			max-width: pixToRem($maxWidthContainer);
-			box-sizing: content-box;
-		} @else {
-			@if ($containerPadding>0) {
-				padding: 0 pixToRem(math.div($containerPadding, 2));
-			}
-		}
-		@media (max-width: $pc) {
-			max-width: pixToRem(970);
-		}
-		@media (max-width: $tablet) {
-			max-width: pixToRem(750);
-		}
-		@media (max-width: $mobile) {
-			max-width: none;
-			@if ($containerPadding>0 and $maxWidthContainer>0) {
-				padding: 0 pixToRem(math.div($containerPadding, 2));
-			}
-		}
-	}
+  // По брейкпоинтам
+  [class*='__container'] {
+    margin: 0 auto;
+    @if ($maxWidthContainer>0) {
+      max-width: pixToRem($maxWidthContainer);
+      box-sizing: content-box;
+    } @else {
+      @if ($containerPadding>0) {
+        padding: 0 pixToRem(math.div($containerPadding, 2));
+      }
+    }
+    @media (max-width: $pc) {
+      max-width: pixToRem(970);
+    }
+    @media (max-width: $tablet) {
+      max-width: pixToRem(750);
+    }
+    @media (max-width: $mobile) {
+      max-width: none;
+      @if ($containerPadding>0 and $maxWidthContainer>0) {
+        padding: 0 pixToRem(math.div($containerPadding, 2));
+      }
+    }
+  }
 }
 // =============================================================================
 
 // =============================================================================
 // ПОДКЛЮЧЕНИЕ СТИЛЕЙ ОДЕЛНЫХ ФАЙЛОВ
 
-@import "header";
-@import "main";
-@import "footer";
+@import 'header';
+@import 'main';
+@import 'footer';
 // =============================================================================
 
 // =============================================================================
 // Common styles
 h2 {
-	color: $titleColor;
-	text-align: center;
-	font-family: Raleway;
-	font-size: pixToRem(32);
-	font-weight: 700;
-	line-height: 122.222%;
+  color: $titleColor;
+  text-align: center;
+  font-family: Raleway;
+  font-size: pixToRem(32);
+  font-weight: 700;
+  line-height: 122.222%;
 }
 // =============================================================================

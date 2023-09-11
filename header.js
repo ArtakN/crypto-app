@@ -6,9 +6,9 @@ navLinks.forEach(link => {
    link.addEventListener('click', event => {
       // Prevent the default behavior of the link
       event.preventDefault();
-
       // Get the target element from the link's href attribute
       const targetId = link.getAttribute('href');
+      console.log(targetId)
       const targetElement = document.querySelector(targetId);
 
       // Scroll the target element into view with smooth behavior

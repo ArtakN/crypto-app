@@ -1,60 +1,62 @@
+@import 'varibles';
+
 .header {
-   height: 90px;
-   width: 100%;
-   position: fixed;
-   top: 0;
-   left: 0;
-   z-index: 1;
-   background-color:  #280132;
+  height: 90px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: #280132;
 
-   &__shadow {
-      box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.15);
-   }
+  &__shadow {
+    box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.15);
+  }
 
-   // .header__container
+  // .header__container
 
-   &__container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 100%;
-   }
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+  }
 
-   // .header__logo
+  // .header__logo
 
-   &__logo {
-      color: $titleColor;
-      font-family: Raleway;
-      font-size: 24px;
-      font-weight: 700;
-   }
+  &__logo {
+    color: $titleColor;
+    font-family: Raleway;
+    font-size: 24px;
+    font-weight: 700;
+  }
 
-   // .header__menu
+  // .header__menu
 
-   &__menu {
-   }
+  &__menu {
+  }
 
-   // .header__menuList
+  // .header__menuList
 
-   &__menuList {
-      display: flex;
-      gap: 40px;
-   }
+  &__menuList {
+    display: flex;
+    gap: 40px;
+  }
 
-   // .header__menuItem
+  // .header__menuItem
 
-   &__menuItem {
-      color: $titleColor;
-      font-weight: 500;
+  &__menuItem {
+    color: $titleColor;
+    font-weight: 500;
 
-      &:hover {
-         color: #0FAE96;
-      }
-   }
+    &:hover {
+      color: #0fae96;
+    }
+  }
 
-   // .header__toggle
+  // .header__toggle
 
-   &__toggle {
-      cursor: pointer;
-   }
+  &__toggle {
+    cursor: pointer;
+  }
 }

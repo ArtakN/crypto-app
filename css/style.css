@@ -6129,7 +6129,7 @@ body {
 }
 
 body {
-  color: #B6B6B6;
+  color: #b6b6b6;
   line-height: normal;
   font-family: "Roboto";
   font-size: 1rem;
@@ -6187,7 +6187,7 @@ h6 {
 }
 
 body {
-  background: #11011E;
+  background: #11011e;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
@@ -6249,7 +6249,7 @@ body {
   height: 100%;
 }
 .header__logo, .footer__logo {
-  color: #ECF1F0;
+  color: #ecf1f0;
   font-family: Raleway;
   font-size: 24px;
   font-weight: 700;
@@ -6259,11 +6259,11 @@ body {
   gap: 40px;
 }
 .header__menuItem {
-  color: #ECF1F0;
+  color: #ecf1f0;
   font-weight: 500;
 }
 .header__menuItem:hover {
-  color: #0FAE96;
+  color: #0fae96;
 }
 .header__toggle {
   cursor: pointer;
@@ -6274,7 +6274,7 @@ body {
 }
 
 .home {
-  background-image: linear-gradient(180deg, #280132, #11011E 70%);
+  background-image: linear-gradient(180deg, #280132, #11011e 70%);
   height: 90vh;
   padding: 160px 0;
 }
@@ -6289,7 +6289,7 @@ body {
 }
 .home__title {
   font-family: Raleway;
-  color: #ECF1F0;
+  color: #ecf1f0;
   font-size: 2.25rem;
   font-weight: 700;
   line-height: 122.222%;
@@ -6325,7 +6325,7 @@ body {
   width: 40px;
 }
 .trend__symbol {
-  color: #ECF1F0;
+  color: #ecf1f0;
   font-family: "Raleway";
   font-size: 18px;
   font-weight: 600;
@@ -6337,22 +6337,22 @@ body {
   padding-top: 18px;
 }
 .trend__price {
-  color: #ECF1F0;
+  color: #ecf1f0;
   font-size: 24px;
   font-weight: 500;
   margin-bottom: 8px;
 }
 .trend__rate {
-  color: #0FAE96;
+  color: #0fae96;
   font-size: 18px;
   font-weight: 500;
   line-height: 160%;
 }
 .trend__rate_positive {
-  color: #0FAE96;
+  color: #0fae96;
 }
 .trend__rate_negative {
-  color: #AE0000;
+  color: #ae0000;
 }
 
 .market {
@@ -6401,7 +6401,7 @@ body {
   cursor: pointer;
 }
 .market__nameTitle:hover, .market__priceTitle:hover, .market__changeTitle:hover, .market__capTitle:hover {
-  color: #ECF1F0;
+  color: #ecf1f0;
 }
 .market__sortedTitle::after {
   content: "";
@@ -6437,10 +6437,10 @@ body {
   text-transform: uppercase;
 }
 .market__itemChange_positive {
-  color: #0FAE96;
+  color: #0fae96;
 }
 .market__itemChange_negative {
-  color: #AE0000;
+  color: #ae0000;
 }
 .market__itemStat img {
   width: 76px;
@@ -6467,7 +6467,7 @@ body {
   transition: background-color 0.3s;
 }
 .market__pagItem:hover {
-  background-color: #2C223B;
+  background-color: #2c223b;
   cursor: pointer;
 }
 
@@ -6529,7 +6529,7 @@ body {
   padding: 20px 20px 36px 20px;
 }
 .article__title {
-  color: #ECF1F0;
+  color: #ecf1f0;
   font-family: Raleway;
   font-weight: 600;
   line-height: 150%;
@@ -6569,7 +6569,7 @@ body {
 }
 .about__text p:first-child a {
   text-decoration: underline;
-  color: #ECF1F0;
+  color: #ecf1f0;
 }
 .about__text P:last-child {
   margin-top: 32px;
@@ -6630,7 +6630,7 @@ body {
   cursor: pointer;
 }
 .footer__list li:first-child {
-  color: #ECF1F0;
+  color: #ecf1f0;
   font-family: Raleway;
   font-size: 18px;
   font-weight: 600;
@@ -6645,11 +6645,11 @@ body {
   transition: color 0.2s;
 }
 .socials__icon:hover {
-  color: #ECF1F0;
+  color: #ecf1f0;
   cursor: pointer;
 }
 h2 {
-  color: #ECF1F0;
+  color: #ecf1f0;
   text-align: center;
   font-family: Raleway;
   font-size: 2rem;
