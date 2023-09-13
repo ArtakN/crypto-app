@@ -7,7 +7,8 @@
   --title-color: #ecf1f0;
   --hover-color: #0fae96;
   --pagination-hover: #2c223b;
-  --darkIcon-diplay: block;
+  --darkModeIcond-display: none;
+  --lightModeIcon-display: block;
 }
 
 :root[data-theme=light] {
@@ -19,7 +20,8 @@
   --title-color: #272242;
   --hover-color: #0fae96;
   --pagination-hover: rgba(53, 46, 91, 0.2);
-  --lightIcon-display: block;
+  --darkModeIcond-display: block;
+  --lightModeIcon-display: none;
 }
 
 .header {
@@ -59,6 +61,7 @@
 }
 .header__darkMode {
   cursor: pointer;
+  display: var(--darkModeIcond-display);
 }
 .header__darkMode path {
   fill: var(--main-color);
@@ -68,7 +71,7 @@
 }
 .header__lightMode {
   cursor: pointer;
-  display: none;
+  display: var(--lightModeIcon-display);
 }
 .header__lightMode path {
   fill: var(--main-color);

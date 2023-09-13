@@ -9,6 +9,8 @@
   --title-color: #ecf1f0;
   --hover-color: #0fae96;
   --pagination-hover: #2c223b;
+  --darkModeIcond-display: none;
+  --lightModeIcon-display: block;
 }
 
 :root[data-theme=light] {
@@ -20,6 +22,8 @@
   --title-color: #272242;
   --hover-color: #0fae96;
   --pagination-hover: rgba(53, 46, 91, 0.2);
+  --darkModeIcond-display: block;
+  --lightModeIcon-display: none;
 }
 
 /*!
@@ -6141,6 +6145,8 @@ readers do not read off random characters that represent icons */
   --title-color: #ecf1f0;
   --hover-color: #0fae96;
   --pagination-hover: #2c223b;
+  --darkModeIcond-display: none;
+  --lightModeIcon-display: block;
 }
 
 :root[data-theme=light] {
@@ -6152,6 +6158,8 @@ readers do not read off random characters that represent icons */
   --title-color: #272242;
   --hover-color: #0fae96;
   --pagination-hover: rgba(53, 46, 91, 0.2);
+  --darkModeIcond-display: block;
+  --lightModeIcon-display: none;
 }
 
 * {
@@ -6280,6 +6288,8 @@ body {
   --title-color: #ecf1f0;
   --hover-color: #0fae96;
   --pagination-hover: #2c223b;
+  --darkModeIcond-display: none;
+  --lightModeIcon-display: block;
 }
 
 :root[data-theme=light] {
@@ -6291,6 +6301,8 @@ body {
   --title-color: #272242;
   --hover-color: #0fae96;
   --pagination-hover: rgba(53, 46, 91, 0.2);
+  --darkModeIcond-display: block;
+  --lightModeIcon-display: none;
 }
 
 .header {
@@ -6330,6 +6342,7 @@ body {
 }
 .header__darkMode {
   cursor: pointer;
+  display: var(--darkModeIcond-display);
 }
 .header__darkMode path {
   fill: var(--main-color);
@@ -6339,7 +6352,7 @@ body {
 }
 .header__lightMode {
   cursor: pointer;
-  display: none;
+  display: var(--lightModeIcon-display);
 }
 .header__lightMode path {
   fill: var(--main-color);
@@ -6357,6 +6370,8 @@ body {
   --title-color: #ecf1f0;
   --hover-color: #0fae96;
   --pagination-hover: #2c223b;
+  --darkModeIcond-display: none;
+  --lightModeIcon-display: block;
 }
 
 :root[data-theme=light] {
@@ -6368,6 +6383,8 @@ body {
   --title-color: #272242;
   --hover-color: #0fae96;
   --pagination-hover: rgba(53, 46, 91, 0.2);
+  --darkModeIcond-display: block;
+  --lightModeIcon-display: none;
 }
 
 .main {

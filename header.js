@@ -29,18 +29,12 @@ window.addEventListener('scroll', () => {
 })
 
 //  toggle dark/light modes
-const darkModeEl = document.querySelector('.header__darkMode')
-const lightModeEl = document.querySelector('.header__lightMode')
+const modeToggleEl = document.querySelector('.header__modeIcons')
 const rootEl = document.documentElement
 
-lightModeEl.addEventListener('click', () => {
-   rootEl.setAttribute('data-theme', 'light')
-   lightModeEl.style.display = 'none'
-   darkModeEl.style.display = 'block'
-})
+function toggleMode() {
+   const activeMode = rootEl.getAttribute('data-theme')
+   rootEl.setAttribute('data-theme', activeMode === 'light' ? 'dark' : 'light')
+}
 
-darkModeEl.addEventListener('click', () => {
-   rootEl.setAttribute('data-theme', 'dark')
-   darkModeEl.style.display = 'none'
-   lightModeEl.style.display = 'block'
-})
+modeToggleEl.addEventListener('click', toggleMode)

@@ -58,6 +58,7 @@
 
   &__darkMode {
     cursor: pointer;
+    display: var(--darkModeIcond-display);
 
     & path {
       fill: var(--main-color);
@@ -70,7 +71,7 @@
   // .header__lightMode
   &__lightMode {
     cursor: pointer;
-    display: none;
+    display: var(--lightModeIcon-display);
 
     & path {
       fill: var(--main-color);

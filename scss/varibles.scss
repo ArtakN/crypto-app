@@ -11,6 +11,9 @@
 
   --hover-color: #0fae96;
   --pagination-hover: #2c223b;
+
+  --darkModeIcond-display: none;
+  --lightModeIcon-display: block;
 }
 
 :root[data-theme='light'] {
@@ -26,6 +29,9 @@
 
   --hover-color: #0fae96;
   --pagination-hover: rgba(53, 46, 91, 0.2);
+
+  --darkModeIcond-display: block;
+  --lightModeIcon-display: none;
 }
 
 $fontFamily: 'Roboto';
