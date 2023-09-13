@@ -2,8 +2,8 @@ import { fetchedData } from './store.js';
 import { generateTrendHTML } from './trends.js'
 import { articles } from "./store.js";
 import './header.js'
-console.log(fetchedData)
-const trendData = [...fetchedData]
+
+const trendData = fetchedData.slice(0, 4)
 
 const trendBlock = document.querySelector('.home__trends')
 const marketBlock = document.querySelector('.market__listItmes')
@@ -67,8 +67,9 @@ function updatePageContent(pageNumber = 1) {
    const startIndex = (pageNumber - 1) * 10;
    const endIndex = startIndex + 10;
 
+
    // render trend block
-   trendData.sort((a, b) => b - a).slice(0, 4).forEach((item) => {
+   trendData.forEach((item) => {
       trendBlock.innerHTML += generateTrendHTML(item)
    })
 
@@ -113,9 +114,7 @@ nameColumnTitle.addEventListener('click', () => sortByName())
 let isPriceSortedAsc = false
 
 function sortByPrice() {
-   nameColumnTitle.classList.remove('market__sortedTitle', 'market__sortedTitle-asc')
-   changeColumnTitle.classList.remove('market__sortedTitle', 'market__sortedTitle-asc')
-   marketCapColumnTitle.classList.remove('market__sortedTitle', 'market__sortedTitle-asc')
+   resetColumnTitiles()
 
    if (isPriceSortedAsc) {
       fetchedData.sort((a, b) => a.current_price - b.current_price)
@@ -136,9 +135,7 @@ priceColumnTitle.addEventListener('click', () => sortByPrice())
 let isChangeSortedAsc = false
 
 function sortByChange() {
-   nameColumnTitle.classList.remove('market__sortedTitle', 'market__sortedTitle-asc')
-   priceColumnTitle.classList.remove('market__sortedTitle', 'market__sortedTitle-asc')
-   marketCapColumnTitle.classList.remove('market__sortedTitle', 'market__sortedTitle-asc')
+   resetColumnTitiles()
 
    if (isChangeSortedAsc) {
       fetchedData.sort((a, b) => a.price_change_percentage_24h - b.price_change_percentage_24h)
@@ -160,9 +157,7 @@ changeColumnTitle.addEventListener('click', () => sortByChange())
 let isMarketCapSortedAsc = false
 
 function sortByMarketCap() {
-   nameColumnTitle.classList.remove('market__sortedTitle', 'market__sortedTitle-asc')
-   priceColumnTitle.classList.remove('market__sortedTitle', 'market__sortedTitle-asc')
-   changeColumnTitle.classList.remove('market__sortedTitle', 'market__sortedTitle-asc')
+   resetColumnTitiles()
 
    if (isMarketCapSortedAsc) {
       fetchedData.sort((a, b) => a.market_cap - b.market_cap)
@@ -184,16 +179,17 @@ paginationItems.forEach(item => {
    item.addEventListener('click', () => {
 
       paginationItems.forEach(item => {
-         item.style.backgroundColor = ''
+         item.classList.remove('market__pagItem-active')
       })
+
       let pageNumber = item.textContent
-      item.style.backgroundColor = '#2C223B';
+      item.classList.add('market__pagItem-active');
       updatePageContent(pageNumber)
    })
 })
 
 // set the background color of the first pagination item
-paginationItems[0].style.backgroundColor = '#2C223B';
+paginationItems[0].classList.add('market__pagItem-active')
 
 // articles
 const articleBlock = document.querySelector('.learn__articleBlock')

@@ -7,7 +7,7 @@
   top: 0;
   left: 0;
   z-index: 1;
-  background-color: #280132;
+  background-color: var(--header-bg);
 
   &__shadow {
     box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.15);
@@ -25,7 +25,7 @@
   // .header__logo
 
   &__logo {
-    color: $titleColor;
+    color: var(--title-color);
     font-family: Raleway;
     font-size: 24px;
     font-weight: 700;
@@ -46,17 +46,37 @@
   // .header__menuItem
 
   &__menuItem {
-    color: $titleColor;
+    color: var(--main-color);
     font-weight: 500;
 
     &:hover {
-      color: #0fae96;
+      color: var(--title-color);
     }
   }
 
-  // .header__toggle
+  // .header__darkMode
 
-  &__toggle {
+  &__darkMode {
     cursor: pointer;
+
+    & path {
+      fill: var(--main-color);
+    }
+    & path:hover {
+      fill: var(--title-color);
+    }
+  }
+
+  // .header__lightMode
+  &__lightMode {
+    cursor: pointer;
+    display: none;
+
+    & path {
+      fill: var(--main-color);
+    }
+    & path:hover {
+      fill: var(--title-color);
+    }
   }
 }

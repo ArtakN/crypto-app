@@ -1,9 +1,31 @@
+:root[data-theme=dark] {
+  --page-bg: #11011e;
+  --header-bg: #280132;
+  --card-bg: rgba(255, 255, 255, 0.02);
+  --border-color: rgba(255, 255, 255, 0.05);
+  --main-color: #b6b6b6;
+  --title-color: #ecf1f0;
+  --hover-color: #0fae96;
+  --pagination-hover: #2c223b;
+}
+
+:root[data-theme=light] {
+  --page-bg: #fefefe;
+  --header-bg: #f8f7ff;
+  --card-bg: #ffffff;
+  --border-color: #eaeaea;
+  --main-color: rgba(53, 46, 91, 0.9);
+  --title-color: #272242;
+  --hover-color: #0fae96;
+  --pagination-hover: rgba(53, 46, 91, 0.2);
+}
+
 .main {
   padding-top: 90px;
 }
 
 .home {
-  background-image: linear-gradient(180deg, #280132, #11011e 70%);
+  background-image: linear-gradient(180deg, var(--header-bg), var(--page-bg) 70%);
   height: 90vh;
   padding: 160px 0;
 }
@@ -18,7 +40,7 @@
 }
 .home__title {
   font-family: Raleway;
-  color: #ecf1f0;
+  color: var(--title-color);
   font-size: pixToRem(36);
   font-weight: 700;
   line-height: 122.222%;
@@ -39,11 +61,11 @@
   flex-direction: column;
   width: 297px;
   border-radius: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-color);
+  background-color: var(--card-bg);
 }
 .trend__top {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid var(--border-color);
   display: flex;
   align-items: center;
   gap: 16px;
@@ -54,7 +76,7 @@
   width: 40px;
 }
 .trend__symbol {
-  color: #ecf1f0;
+  color: var(--title-color);
   font-family: "Raleway";
   font-size: 18px;
   font-weight: 600;
@@ -66,7 +88,7 @@
   padding-top: 18px;
 }
 .trend__price {
-  color: #ecf1f0;
+  color: var(--title-color);
   font-size: 24px;
   font-weight: 500;
   margin-bottom: 8px;
@@ -99,7 +121,7 @@
   margin-right: auto;
 }
 .market__list {
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
   border-radius: 8px;
 }
 .market__listHeader, .market__listItem {
@@ -130,7 +152,10 @@
   cursor: pointer;
 }
 .market__nameTitle:hover, .market__priceTitle:hover, .market__changeTitle:hover, .market__capTitle:hover {
-  color: #ecf1f0;
+  color: var(--title-color);
+}
+.market__sortedTitle {
+  color: var(--title-color);
 }
 .market__sortedTitle::after {
   content: "";
@@ -147,7 +172,7 @@
   transform: rotate(180deg);
 }
 .market__listItem {
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid var(--border-color);
 }
 .market__listItem img {
   width: 32px;
@@ -185,19 +210,22 @@
 .market__pagItem {
   width: 40px;
   height: 40px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: var(--title-color);
   font-size: 18px;
-  background-color: rgba(255, 255, 255, 0.02);
+  background-color: var(--card-bg);
   transition: background-color 0.3s;
 }
 .market__pagItem:hover {
-  background-color: #2c223b;
+  background-color: var(--pagination-hover);
   cursor: pointer;
+}
+.market__pagItem-active {
+  background-color: var(--pagination-hover);
 }
 
 .learn {
@@ -221,6 +249,7 @@
 .learn__articleBlock div:first-child {
   grid-column: span 2;
   position: relative;
+  color: #ecf1f0;
 }
 .learn__articleBlock div:first-child img {
   width: 100%;
@@ -236,12 +265,13 @@
 }
 .learn__articleBlock div:first-child div p:first-child {
   font-size: 24px;
+  color: #ecf1f0;
 }
 .article {
   height: 355px;
   border-radius: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-color);
+  background: var(--card-bg);
 }
 .article:hover {
   box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.15);
@@ -258,7 +288,7 @@
   padding: 20px 20px 36px 20px;
 }
 .article__title {
-  color: #ecf1f0;
+  color: var(--title-color);
   font-family: Raleway;
   font-weight: 600;
   line-height: 150%;
@@ -293,31 +323,24 @@
 .about__text {
   line-height: 150%;
 }
-.about__text p:first-child {
-  margin-bottom: 32px;
-}
-.about__text p:first-child a {
+.about__text a {
   text-decoration: underline;
-  color: #ecf1f0;
 }
-.about__text P:last-child {
-  margin-top: 32px;
+.about__text a:hover {
+  color: var(--title-color);
 }
-.about__text p:nth-child(2) {
+.about__text h4 {
+  font-size: 18px;
+  color: var(--title-color);
   font-weight: 500;
 }
 .about__techList {
   margin-top: 16px;
-  margin-left: 32px;
+  margin-left: 40px;
 }
 .about__techList li {
-  display: flex;
-  padding-block: 4px;
-  align-items: center;
-  gap: 8px;
-}
-.about__techList li img {
-  width: 32px;
+  padding: 4px;
+  list-style: disc;
 }
 .about__img {
   width: 400px;

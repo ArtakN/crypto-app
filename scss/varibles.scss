@@ -1,8 +1,35 @@
+:root[data-theme='dark'] {
+  --page-bg: #11011e;
+  --header-bg: #280132;
+
+  --card-bg: rgba(255, 255, 255, 0.02);
+
+  --border-color: rgba(255, 255, 255, 0.05);
+
+  --main-color: #b6b6b6;
+  --title-color: #ecf1f0;
+
+  --hover-color: #0fae96;
+  --pagination-hover: #2c223b;
+}
+
+:root[data-theme='light'] {
+  --page-bg: #fefefe;
+  --header-bg: #f8f7ff;
+
+  --card-bg: #ffffff;
+
+  --border-color: #eaeaea;
+
+  --main-color: rgba(46, 40, 78, 0.9);
+  --title-color: #272242;
+
+  --hover-color: #0fae96;
+  --pagination-hover: rgba(53, 46, 91, 0.2);
+}
+
 $fontFamily: 'Roboto';
 $fontWeight: 400;
 $fontStyle: noraml;
 $lightHeight: normal;
-$fontSize: 1rem; // По умолчанию размер шрифта в браузере 16px (1 rem).
-
-$mainColor: #b6b6b6;
-$titleColor: #ecf1f0;
+$fontSize: 1rem;
