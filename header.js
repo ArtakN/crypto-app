@@ -33,8 +33,11 @@ const modeToggleEl = document.querySelector('.header__modeIcons')
 const rootEl = document.documentElement
 
 function toggleMode() {
-   const activeMode = rootEl.getAttribute('data-theme')
-   rootEl.setAttribute('data-theme', activeMode === 'light' ? 'dark' : 'light')
+   let activeMode = rootEl.getAttribute('data-theme')
+   activeMode = activeMode === 'light' ? 'dark' : 'light'
+   rootEl.setAttribute('data-theme', activeMode)
+
+   localStorage.setItem('mode', activeMode)
 }
 
 modeToggleEl.addEventListener('click', toggleMode)
