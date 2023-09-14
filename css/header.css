@@ -79,3 +79,97 @@
 .header__lightMode path:hover {
   fill: var(--title-color);
 }
+.header__burgerIcon {
+  display: none;
+}
+.header__mobileMenu {
+  display: none;
+}
+
+.mobile-visable {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .header__container {
+    position: relative;
+  }
+  .header__logo {
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  @supports (font-size: clamp( 1.375rem , 1.2857142857rem  +  0.4464285714vw , 1.5rem )) {
+    .header__logo {
+      font-size: clamp( 1.375rem , 1.2857142857rem  +  0.4464285714vw , 1.5rem );
+    }
+  }
+  @supports not (font-size: clamp( 1.375rem , 1.2857142857rem  +  0.4464285714vw , 1.5rem )) {
+    .header__logo {
+      font-size: calc(
+      1.375rem + 0.125 * (100vw - 20rem) / 28
+    );
+    }
+  }
+  .header__menu {
+    display: none;
+  }
+  .header__modeIcons {
+    position: absolute;
+    left: 24px;
+    z-index: 2;
+  }
+  .header__darkMode path {
+    fill: var(--title-color);
+  }
+  .header__lightMode path {
+    fill: var(--title-color);
+  }
+  .header__burgerIcon {
+    display: block;
+    margin-left: auto;
+  }
+  .header__burgerIcon path {
+    fill: var(--title-color);
+  }
+  .header__mobileMenu {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--header-bg);
+    height: 100vh;
+    padding: 24px;
+  }
+  .header__closeMobileMenu {
+    width: 25px;
+    margin-left: auto;
+    margin-top: 7px;
+    cursor: pointer;
+  }
+  .header__closeMobileMenu path {
+    fill: var(--title-color);
+  }
+  .header__mobileMenuList::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--border-color);
+    margin-top: 28px;
+    margin-bottom: 35%;
+  }
+  .header__mobileMenuList ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    font-size: 20px;
+    font-weight: 500;
+  }
+  .header__mobileMenuItem:hover {
+    color: var(--title-color);
+  }
+}

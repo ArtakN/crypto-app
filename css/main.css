@@ -7,6 +7,8 @@
   --title-color: #ecf1f0;
   --hover-color: #0fae96;
   --pagination-hover: #2c223b;
+  --darkModeIcond-display: none;
+  --lightModeIcon-display: block;
 }
 
 :root[data-theme=light] {
@@ -14,10 +16,12 @@
   --header-bg: #f8f7ff;
   --card-bg: #ffffff;
   --border-color: #eaeaea;
-  --main-color: rgba(53, 46, 91, 0.9);
+  --main-color: rgba(46, 40, 78, 0.9);
   --title-color: #272242;
   --hover-color: #0fae96;
   --pagination-hover: rgba(53, 46, 91, 0.2);
+  --darkModeIcond-display: block;
+  --lightModeIcon-display: none;
 }
 
 .main {

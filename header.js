@@ -41,3 +41,30 @@ function toggleMode() {
 }
 
 modeToggleEl.addEventListener('click', toggleMode)
+
+// Mobile menu
+const burgerEl = document.querySelector('.header__burgerIcon')
+const mobileMenu = document.querySelector('.header__mobileMenu')
+const closeMenu = document.querySelector('.header__closeMobileMenu')
+const mobileMenuItem = document.querySelectorAll('.header__mobileMenuItem')
+
+function showMobileMenu() {
+   mobileMenu.classList.add('mobile-visable')
+}
+
+function hideMobileMenu() {
+   mobileMenu.classList.remove('mobile-visable')
+}
+
+burgerEl.addEventListener('click', showMobileMenu);
+
+closeMenu.addEventListener('click', hideMobileMenu);
+
+mobileMenuItem.forEach(item => {
+   item.addEventListener('click', hideMobileMenu)
+})
+
+// hide mobile menu if it is opend and viewport become wider than 768px
+window.addEventListener('resize', function () {
+   window.innerWidth >= 768 && hideMobileMenu()
+})
