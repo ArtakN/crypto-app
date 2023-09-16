@@ -74,7 +74,7 @@ function setTrendAnimation() {
 
 function trendBlockRender() {
    setTimeout(() => {
-      trendBlock.innerHTML = ''; -a
+      trendBlock.innerHTML = '';
 
       visableTrends.forEach((item) => {
          trendBlock.innerHTML += generateTrendHTML(item);
