@@ -14,7 +14,7 @@
 
 :root[data-theme=light] {
   --page-bg: #fefefe;
-  --header-bg: #f8f7ff;
+  --header-bg: #ebebf3;
   --card-bg: #ffffff;
   --border-color: #eaeaea;
   --main-color: rgba(46, 40, 78, 0.9);
@@ -6150,7 +6150,7 @@ readers do not read off random characters that represent icons */
 
 :root[data-theme=light] {
   --page-bg: #fefefe;
-  --header-bg: #f8f7ff;
+  --header-bg: #ebebf3;
   --card-bg: #ffffff;
   --border-color: #eaeaea;
   --main-color: rgba(46, 40, 78, 0.9);
@@ -6275,7 +6275,7 @@ body {
 
 :root[data-theme=light] {
   --page-bg: #fefefe;
-  --header-bg: #f8f7ff;
+  --header-bg: #ebebf3;
   --card-bg: #ffffff;
   --border-color: #eaeaea;
   --main-color: rgba(46, 40, 78, 0.9);
@@ -6450,7 +6450,7 @@ body {
 
 :root[data-theme=light] {
   --page-bg: #fefefe;
-  --header-bg: #f8f7ff;
+  --header-bg: #ebebf3;
   --card-bg: #ffffff;
   --border-color: #eaeaea;
   --main-color: rgba(46, 40, 78, 0.9);
@@ -6497,6 +6497,19 @@ body {
   width: 1308px;
   overflow: hidden;
   padding: 24px;
+}
+.home__trendsLabel {
+  display: flex;
+  gap: 2px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 16px;
+}
+.home__trendLabelItem {
+  width: 8px;
+  height: 8px;
+  background-color: var(--pagination-hover);
+  border-radius: 50%;
 }
 
 .trend {

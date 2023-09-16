@@ -53,6 +53,23 @@
     overflow: hidden;
     padding: 24px;
   }
+
+  // .home__trendsLabel
+  &__trendsLabel {
+    display: flex;
+    gap: 2px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 16px;
+  }
+
+  // .home__trendLabelItem
+  &__trendLabelItem {
+    width: 8px;
+    height: 8px;
+    background-color: var(--pagination-hover);
+    border-radius: 50%;
+  }
 }
 
 .trend {

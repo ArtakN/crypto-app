@@ -59,7 +59,7 @@ function generateMarketHTML(item, index, startIndex) {
 }
 
 
-// Render trends block
+// RENDER TRENDS BLOCK
 const trendBlock = document.querySelector('.home__trends')
 let i = 0;
 const trendData = fetchedData.slice(0, 10);
@@ -74,30 +74,53 @@ function setTrendAnimation() {
 
 function trendBlockRender() {
    setTimeout(() => {
-      trendBlock.innerHTML = '';
+      trendBlock.innerHTML = ''; -a
 
       visableTrends.forEach((item) => {
          trendBlock.innerHTML += generateTrendHTML(item);
       });
 
-      if (i < trendData.length) {
+      if (i < trendData.length - 1) {
          visableTrends.shift();
          visableTrends.push(trendData[i]);
          i++;
       } else {
          i = 0;
-         visableTrends = [...trendData];
       }
    }, 300);
 }
 
+let index = 0
+
+function trendLabelAnimation() {
+   const trendLabels = document.querySelectorAll('.home__trendLabelItem')
+
+   trendLabels[index].style.background = '#0fae96'
+   if (index === 0) {
+      trendLabels[trendLabels.length - 1].style.background = ''
+   } else {
+      trendLabels[index - 1].style.background = ''
+   }
+
+   if (index < trendLabels.length - 1) {
+      index++
+   } else {
+      index = 0
+   }
+
+   console.log(index)
+}
+
+
 // Call the function immediately
 trendBlockRender();
+trendLabelAnimation();
 
 // Then call it every 3 seconds
 setInterval(() => {
    setTrendAnimation();
    setTimeout(trendBlockRender, 300);
+   trendLabelAnimation();
 }, 3000);
 
 
