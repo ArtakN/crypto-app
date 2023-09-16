@@ -535,7 +535,7 @@
     }
 
     &__container {
-      @include adaptiveValue('gap', 140, 100, 986, 320, 1);
+      @include adaptiveValue('gap', 140, 60, 986, 320, 1);
     }
   }
 }
@@ -556,7 +556,7 @@
 // =============================================================================
 @media (max-width: 768px) {
   .home {
-    @include adaptiveValue('padding-top', 160, 80, 768, 320, 1);
+    @include adaptiveValue('padding-top', 160, 60, 768, 320, 1);
 
     // .home__container
 

@@ -6801,15 +6801,15 @@ body {
   .home__trends {
     width: 666px;
   }
-  @supports (gap: clamp( 6.25rem , 5.0487987988rem  +  6.006006006vw , 8.75rem )) {
+  @supports (gap: clamp( 3.75rem , 1.3475975976rem  +  12.012012012vw , 8.75rem )) {
     .home__container {
-      gap: clamp( 6.25rem , 5.0487987988rem  +  6.006006006vw , 8.75rem );
+      gap: clamp( 3.75rem , 1.3475975976rem  +  12.012012012vw , 8.75rem );
     }
   }
-  @supports not (gap: clamp( 6.25rem , 5.0487987988rem  +  6.006006006vw , 8.75rem )) {
+  @supports not (gap: clamp( 3.75rem , 1.3475975976rem  +  12.012012012vw , 8.75rem )) {
     .home__container {
       gap: calc(
-      6.25rem + 2.5 * (100vw - 20rem) / 41.625
+      3.75rem + 5 * (100vw - 20rem) / 41.625
     );
     }
   }
@@ -6821,15 +6821,15 @@ body {
   }
 }
 @media (max-width: 768px) {
-  @supports (padding-top: clamp( 5rem , 1.4285714286rem  +  17.8571428571vw , 10rem )) {
+  @supports (padding-top: clamp( 3.75rem , -0.7142857143rem  +  22.3214285714vw , 10rem )) {
     .home {
-      padding-top: clamp( 5rem , 1.4285714286rem  +  17.8571428571vw , 10rem );
+      padding-top: clamp( 3.75rem , -0.7142857143rem  +  22.3214285714vw , 10rem );
     }
   }
-  @supports not (padding-top: clamp( 5rem , 1.4285714286rem  +  17.8571428571vw , 10rem )) {
+  @supports not (padding-top: clamp( 3.75rem , -0.7142857143rem  +  22.3214285714vw , 10rem )) {
     .home {
       padding-top: calc(
-      5rem + 5 * (100vw - 20rem) / 28
+      3.75rem + 6.25 * (100vw - 20rem) / 28
     );
     }
   }
