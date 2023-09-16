@@ -1,4 +1,6 @@
+@use 'sass:math';
 @import 'varibles';
+@import 'mixins';
 
 .main {
   padding-top: 90px;
@@ -14,7 +16,7 @@
   &__container {
     display: flex;
     flex-direction: column;
-    max-width: 1260px;
+    align-items: center;
     gap: 140px;
   }
 
@@ -42,11 +44,14 @@
     line-height: 160%; /* 28.8px */
   }
 
-  // .home__trend
+  // .home__trends
 
   &__trends {
     display: flex;
     gap: 24px;
+    width: 1308px;
+    overflow: hidden;
+    padding: 24px;
   }
 }
 
@@ -55,6 +60,8 @@
   padding: 18px 20px;
   flex-direction: column;
   width: 297px;
+  flex: 0 0 auto;
+  transition: transform 0.3s ease-out;
 
   border-radius: 18px;
   border: 1px solid var(--border-color);
@@ -506,3 +513,77 @@
     width: 400px;
   }
 }
+// =============================================================================
+
+// =============================================================================
+@media (max-width: 1307px) {
+  // .home__trend
+  .home {
+    &__trends {
+      width: 987px;
+    }
+  }
+}
+// =============================================================================
+
+// =============================================================================
+@media (max-width: 986px) {
+  // .home__trend
+  .home {
+    &__trends {
+      width: 666px;
+    }
+
+    &__container {
+      @include adaptiveValue('gap', 140, 100, 986, 320, 1);
+    }
+  }
+}
+// =============================================================================
+
+// =============================================================================
+@media (max-width: 665px) {
+  // .home__trend
+  .home {
+    &__trends {
+      width: 320px;
+      padding: 12px;
+    }
+  }
+}
+// =============================================================================
+
+// =============================================================================
+@media (max-width: 768px) {
+  .home {
+    @include adaptiveValue('padding-top', 160, 80, 768, 320, 1);
+
+    // .home__container
+
+    &__container {
+    }
+
+    // .home__info
+
+    &__info {
+    }
+
+    // .home__title
+
+    &__title {
+      @include adaptiveValue('font-size', 36, 30, 768, 320, 1);
+    }
+
+    // .home__desc
+
+    &__desc {
+      font-size: 16px;
+    }
+
+    // .home__trends
+
+    &__trends {
+    }
+  }
+}
+// =============================================================================

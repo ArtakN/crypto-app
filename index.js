@@ -3,9 +3,8 @@ import { generateTrendHTML } from './trends.js'
 import { articles } from "./store.js";
 import './header.js'
 
-const trendData = fetchedData.slice(0, 4)
 
-const trendBlock = document.querySelector('.home__trends')
+
 const marketBlock = document.querySelector('.market__listItmes')
 const nameColumnTitle = document.querySelector('.market__nameTitle')
 const priceColumnTitle = document.querySelector('.market__priceTitle')
@@ -59,21 +58,57 @@ function generateMarketHTML(item, index, startIndex) {
    `;
 }
 
+
+// Render trends block
+const trendBlock = document.querySelector('.home__trends')
+let i = 0;
+const trendData = fetchedData.slice(0, 10);
+let visableTrends = [...trendData];
+
+function setTrendAnimation() {
+   const trends = document.querySelectorAll('.trend');
+   trends.forEach(trend => {
+      trend.style.transform = 'translateX(-321px)';
+   });
+}
+
+function trendBlockRender() {
+   setTimeout(() => {
+      trendBlock.innerHTML = '';
+
+      visableTrends.forEach((item) => {
+         trendBlock.innerHTML += generateTrendHTML(item);
+      });
+
+      if (i < trendData.length) {
+         visableTrends.shift();
+         visableTrends.push(trendData[i]);
+         i++;
+      } else {
+         i = 0;
+         visableTrends = [...trendData];
+      }
+   }, 300);
+}
+
+// Call the function immediately
+trendBlockRender();
+
+// Then call it every 3 seconds
+setInterval(() => {
+   setTrendAnimation();
+   setTimeout(trendBlockRender, 300);
+}, 3000);
+
+
+// render market block
 function updatePageContent(pageNumber = 1) {
 
-   trendBlock.innerHTML = '';
    marketBlock.innerHTML = '';
 
    const startIndex = (pageNumber - 1) * 10;
    const endIndex = startIndex + 10;
 
-
-   // render trend block
-   trendData.forEach((item) => {
-      trendBlock.innerHTML += generateTrendHTML(item)
-   })
-
-   // render market block
    fetchedData.slice(startIndex, endIndex).forEach((item, index) => {
       marketBlock.innerHTML += generateMarketHTML(item, index, startIndex)
    })
@@ -81,12 +116,14 @@ function updatePageContent(pageNumber = 1) {
 
 updatePageContent()
 
+
 function resetColumnTitiles() {
    nameColumnTitle.classList.remove('market__sortedTitle', 'market__sortedTitle-asc')
    priceColumnTitle.classList.remove('market__sortedTitle', 'market__sortedTitle-asc')
    changeColumnTitle.classList.remove('market__sortedTitle', 'market__sortedTitle-asc')
    marketCapColumnTitle.classList.remove('market__sortedTitle', 'market__sortedTitle-asc')
 }
+
 
 // sort coins by name
 let isNameSortedAsc = false
@@ -174,6 +211,7 @@ function sortByMarketCap() {
 
 marketCapColumnTitle.addEventListener('click', () => sortByMarketCap())
 
+
 // pagination
 paginationItems.forEach(item => {
    item.addEventListener('click', () => {
@@ -188,8 +226,10 @@ paginationItems.forEach(item => {
    })
 })
 
+
 // set the background color of the first pagination item
 paginationItems[0].classList.add('market__pagItem-active')
+
 
 // articles
 const articleBlock = document.querySelector('.learn__articleBlock')

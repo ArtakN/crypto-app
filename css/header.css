@@ -86,10 +86,6 @@
   display: none;
 }
 
-.mobile-visable {
-  display: block;
-}
-
 @media (max-width: 768px) {
   .header__container {
     position: relative;
@@ -172,4 +168,7 @@
   .header__mobileMenuItem:hover {
     color: var(--title-color);
   }
+}
+.mobile-visable {
+  display: block;
 }

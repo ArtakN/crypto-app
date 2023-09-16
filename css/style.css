@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500;600;700&family=Roboto:wght@400;500&display=swap");
 :root[data-theme=dark] {
   --page-bg: #11011e;
@@ -6255,11 +6254,8 @@ body {
   min-width: 0;
 }
 
-/*	Стили будут применяться ко всем классам, содержащим *__container
-Например, header__container, main__container и т.д.	*/
 [class*=__container] {
-  max-width: 1306;
-  box-sizing: content-box;
+  max-width: 81.75rem;
   margin: 0 auto;
   padding: 0 1.5rem;
 }
@@ -6352,10 +6348,6 @@ body {
   display: none;
 }
 
-.mobile-visable {
-  display: block;
-}
-
 @media (max-width: 768px) {
   .header__container {
     position: relative;
@@ -6439,6 +6431,10 @@ body {
     color: var(--title-color);
   }
 }
+.mobile-visable {
+  display: block;
+}
+
 :root[data-theme=dark] {
   --page-bg: #11011e;
   --header-bg: #280132;
@@ -6477,7 +6473,7 @@ body {
 .home__container {
   display: flex;
   flex-direction: column;
-  max-width: 1260px;
+  align-items: center;
   gap: 140px;
 }
 .home__info {
@@ -6498,6 +6494,9 @@ body {
 .home__trends {
   display: flex;
   gap: 24px;
+  width: 1308px;
+  overflow: hidden;
+  padding: 24px;
 }
 
 .trend {
@@ -6505,6 +6504,8 @@ body {
   padding: 18px 20px;
   flex-direction: column;
   width: 297px;
+  flex: 0 0 auto;
+  transition: transform 0.3s ease-out;
   border-radius: 18px;
   border: 1px solid var(--border-color);
   background-color: var(--card-bg);
@@ -6791,6 +6792,63 @@ body {
   width: 400px;
 }
 
+@media (max-width: 1307px) {
+  .home__trends {
+    width: 987px;
+  }
+}
+@media (max-width: 986px) {
+  .home__trends {
+    width: 666px;
+  }
+  @supports (gap: clamp( 6.25rem , 5.0487987988rem  +  6.006006006vw , 8.75rem )) {
+    .home__container {
+      gap: clamp( 6.25rem , 5.0487987988rem  +  6.006006006vw , 8.75rem );
+    }
+  }
+  @supports not (gap: clamp( 6.25rem , 5.0487987988rem  +  6.006006006vw , 8.75rem )) {
+    .home__container {
+      gap: calc(
+      6.25rem + 2.5 * (100vw - 20rem) / 41.625
+    );
+    }
+  }
+}
+@media (max-width: 665px) {
+  .home__trends {
+    width: 320px;
+    padding: 12px;
+  }
+}
+@media (max-width: 768px) {
+  @supports (padding-top: clamp( 5rem , 1.4285714286rem  +  17.8571428571vw , 10rem )) {
+    .home {
+      padding-top: clamp( 5rem , 1.4285714286rem  +  17.8571428571vw , 10rem );
+    }
+  }
+  @supports not (padding-top: clamp( 5rem , 1.4285714286rem  +  17.8571428571vw , 10rem )) {
+    .home {
+      padding-top: calc(
+      5rem + 5 * (100vw - 20rem) / 28
+    );
+    }
+  }
+  @supports (font-size: clamp( 1.875rem , 1.6071428571rem  +  1.3392857143vw , 2.25rem )) {
+    .home__title {
+      font-size: clamp( 1.875rem , 1.6071428571rem  +  1.3392857143vw , 2.25rem );
+    }
+  }
+  @supports not (font-size: clamp( 1.875rem , 1.6071428571rem  +  1.3392857143vw , 2.25rem )) {
+    .home__title {
+      font-size: calc(
+      1.875rem + 0.375 * (100vw - 20rem) / 28
+    );
+    }
+  }
+  .home__desc {
+    font-size: 16px;
+  }
+}
 .footer {
   padding: 48px 0;
   border-top: 1px solid var(--border-color);
