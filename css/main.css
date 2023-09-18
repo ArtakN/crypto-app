@@ -145,12 +145,14 @@
 .market__list {
   border: 1px solid var(--border-color);
   border-radius: 8px;
+  overflow-x: scroll;
 }
 .market__listHeader, .market__listItem {
   display: flex;
   align-items: center;
   height: 62px;
   padding: 0 24px;
+  width: 1308px;
 }
 .market__listHeader div, .market__listItem div {
   width: 19%;
@@ -405,6 +407,18 @@
   @supports not (padding-top: clamp( 3.75rem , -0.7142857143rem  +  22.3214285714vw , 10rem )) {
     .home {
       padding-top: calc(
+      3.75rem + 6.25 * (100vw - 20rem) / 28
+    );
+    }
+  }
+  @supports (padding-bottom: clamp( 3.75rem , -0.7142857143rem  +  22.3214285714vw , 10rem )) {
+    .home {
+      padding-bottom: clamp( 3.75rem , -0.7142857143rem  +  22.3214285714vw , 10rem );
+    }
+  }
+  @supports not (padding-bottom: clamp( 3.75rem , -0.7142857143rem  +  22.3214285714vw , 10rem )) {
+    .home {
+      padding-bottom: calc(
       3.75rem + 6.25 * (100vw - 20rem) / 28
     );
     }

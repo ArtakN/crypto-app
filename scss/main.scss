@@ -179,6 +179,7 @@
   &__list {
     border: 1px solid var(--border-color);
     border-radius: 8px;
+    overflow-x: scroll;
   }
 
   &__listHeader,
@@ -187,6 +188,7 @@
     align-items: center;
     height: 62px;
     padding: 0 24px;
+    width: 1308px;
 
     div {
       width: 19%;
@@ -574,6 +576,7 @@
 @media (max-width: 768px) {
   .home {
     @include adaptiveValue('padding-top', 160, 60, 768, 320, 1);
+    @include adaptiveValue('padding-bottom', 160, 60, 768, 320, 1);
 
     // .home__container
 
