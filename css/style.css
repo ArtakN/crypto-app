@@ -6553,14 +6553,13 @@ h6 {
 
 .home {
   background-image: linear-gradient(180deg, var(--header-bg), var(--page-bg) 70%);
-  height: 90vh;
   padding: 160px 0;
 }
 .home__container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 140px;
+  gap: 100px;
 }
 .home__info {
   text-align: center;
