@@ -459,15 +459,15 @@ h6 {
   }
 }
 @media (max-width: 986px) {
-  @supports (padding-top: clamp( 3.75rem , 0.746996997rem  +  15.015015015vw , 10rem )) {
+  @supports (padding-top: clamp( 3.125rem , -0.1783033033rem  +  16.5165165165vw , 10rem )) {
     .home {
-      padding-top: clamp( 3.75rem , 0.746996997rem  +  15.015015015vw , 10rem );
+      padding-top: clamp( 3.125rem , -0.1783033033rem  +  16.5165165165vw , 10rem );
     }
   }
-  @supports not (padding-top: clamp( 3.75rem , 0.746996997rem  +  15.015015015vw , 10rem )) {
+  @supports not (padding-top: clamp( 3.125rem , -0.1783033033rem  +  16.5165165165vw , 10rem )) {
     .home {
       padding-top: calc(
-      3.75rem + 6.25 * (100vw - 20rem) / 41.625
+      3.125rem + 6.875 * (100vw - 20rem) / 41.625
     );
     }
   }

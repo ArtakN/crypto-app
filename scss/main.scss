@@ -556,7 +556,7 @@
 // =============================================================================
 @media (max-width: 986px) {
   .home {
-    @include adaptiveValue('padding-top', 160, 60, 986, 320, 1);
+    @include adaptiveValue('padding-top', 160, 50, 986, 320, 1);
     @include adaptiveValue('padding-bottom', 160, 50, 986, 320, 1);
     // .home__trends
 
