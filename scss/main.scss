@@ -483,7 +483,7 @@
 }
 
 .about {
-  padding: 100px 0 200px 0;
+  padding: 100px 0 160px 0;
 
   // .about__container
 
@@ -556,6 +556,8 @@
 // =============================================================================
 @media (max-width: 986px) {
   .home {
+    @include adaptiveValue('padding-top', 160, 60, 986, 320, 1);
+    @include adaptiveValue('padding-bottom', 160, 50, 986, 320, 1);
     // .home__trends
 
     &__trends {
@@ -568,71 +570,23 @@
   }
 
   .market {
-    // .market__container
-
-    &__container {
-    }
-
-    // .market__title
-
-    &__title {
-    }
-
+    @include adaptiveValue('padding-top', 100, 50, 986, 320, 1);
+    @include adaptiveValue('padding-bottom', 100, 50, 986, 320, 1);
     // .market__list
 
     &__list {
       overflow-x: scroll;
     }
+  }
 
-    // .market__listHeader
+  .learn {
+    @include adaptiveValue('padding-top', 100, 50, 986, 320, 1);
+    @include adaptiveValue('padding-bottom', 100, 50, 986, 320, 1);
+  }
 
-    &__listHeader {
-    }
-
-    // .market__nameTitle
-
-    &__nameTitle {
-    }
-
-    // .market__priceTitle
-
-    &__priceTitle {
-    }
-
-    // .market__changeTitle
-
-    &__changeTitle {
-    }
-
-    // .market__capTitle
-
-    &__capTitle {
-    }
-
-    // .market__sortedTitle
-
-    &__sortedTitle {
-    }
-
-    // .market__listItmes
-
-    &__listItmes {
-    }
-
-    // .market__pag
-
-    &__pag {
-    }
-
-    // .market__pagList
-
-    &__pagList {
-    }
-
-    // .market__pagItem
-
-    &__pagItem {
-    }
+  .about {
+    @include adaptiveValue('padding-top', 100, 50, 986, 320, 1);
+    @include adaptiveValue('padding-bottom', 200, 60, 986, 320, 1);
   }
 }
 // =============================================================================
@@ -685,18 +639,10 @@
 // =============================================================================
 @media (max-width: 768px) {
   .home {
-    @include adaptiveValue('padding-top', 160, 60, 1024, 320, 1);
-    @include adaptiveValue('padding-bottom', 160, 60, 1024, 320, 1);
-
     // .home__container
 
     &__container {
       @include adaptiveValue('padding', 12, 16, 425, 320, 1);
-    }
-
-    // .home__info
-
-    &__info {
     }
 
     // .home__title
@@ -710,11 +656,6 @@
     &__desc {
       font-size: 16px;
     }
-
-    // .home__trends
-
-    &__trends {
-    }
   }
 
   .market {
@@ -724,8 +665,6 @@
   }
 
   .about {
-    @include adaptiveValue('padding-bottom', 200, 100, 1024, 768, 1);
-
     &__container {
       @include adaptiveValue('padding', 24, 12, 425, 320, 1);
     }
