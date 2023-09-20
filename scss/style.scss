@@ -78,7 +78,7 @@ body {
 // ОГРАНИЧИВАЮЩИЙ КОНТЕЙНЕР
 
 [class*='__container'] {
-  max-width: pixToRem($maxWidthContainer);
+  max-width: $maxWidthContainer;
   margin: 0 auto;
   padding: 0 pixToRem(math.div($containerPadding, 2));
 }

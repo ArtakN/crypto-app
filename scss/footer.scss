@@ -1,3 +1,13 @@
+@use 'sass:math';
+@import 'varibles';
+@import 'mixins';
+@import 'header';
+
+// Подключение fontawsome icons
+@import './fa_scss/fontawesome.scss';
+@import './fa_scss/solid.scss';
+@import './fa_scss/brands.scss';
+
 .footer {
   padding: 48px 0;
   border-top: 1px solid var(--border-color);
@@ -5,6 +15,7 @@
   // .footer__container
 
   &__container {
+    @include adaptiveValue('gap', 300, 24, 1352, 768, 1);
     display: flex;
     justify-content: space-between;
   }
@@ -12,13 +23,16 @@
   // .footer__left
 
   &__left {
-    width: 40%;
+    min-width: 200px;
   }
 
   // .footer__logo
 
   &__logo {
-    @extend .header__logo;
+    color: var(--title-color);
+    font-family: Raleway;
+    font-size: 24px;
+    font-weight: 700;
     margin-bottom: 68px;
   }
 
@@ -41,7 +55,7 @@
   &__right {
     display: flex;
     justify-content: space-between;
-    width: 60%;
+    flex-grow: 1;
   }
 
   // .footer__list
@@ -103,6 +117,55 @@
     // .socials__icon--youtube
 
     &__icon--youtube {
+    }
+  }
+}
+// =============================================================================
+
+// =============================================================================
+@media (max-width: 768px) {
+  .footer {
+    // .footer__container
+
+    &__container {
+      flex-direction: column;
+    }
+
+    // .footer__left
+
+    &__left {
+      margin-right: 24px;
+    }
+
+    // .footer__logo
+
+    &__logo {
+      margin-bottom: 32px;
+    }
+
+    // .footer__socials
+
+    &__socials {
+    }
+
+    // .footer__right
+
+    &__right {
+      justify-content: space-between;
+    }
+
+    // .footer__list
+
+    &__list {
+    }
+  }
+}
+// =============================================================================
+@media (max-width: 490px) {
+  .footer {
+    &__right {
+      flex-direction: column;
+      gap: 24px;
     }
   }
 }

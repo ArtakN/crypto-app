@@ -1,6 +1,7 @@
 @use 'sass:math';
 @import 'varibles';
 @import 'mixins';
+@import 'null';
 
 .main {
   padding-top: 90px;
@@ -179,7 +180,9 @@
   &__list {
     border: 1px solid var(--border-color);
     border-radius: 8px;
-    overflow-x: scroll;
+    overflow-x: auto;
+    // scrollbar-color: blue orange;
+    // scrollbar-width: thin;
   }
 
   &__listHeader,
@@ -188,7 +191,8 @@
     align-items: center;
     height: 62px;
     padding: 0 24px;
-    width: 1308px;
+    min-width: 938px;
+    // border: 1px solid red;
 
     div {
       width: 19%;
@@ -199,7 +203,11 @@
     }
 
     div:nth-child(2) {
-      width: 30%;
+      min-width: 330px;
+    }
+
+    div:nth-child(4) {
+      width: 17%;
     }
 
     div:nth-child(5) {
@@ -207,7 +215,7 @@
     }
 
     div:nth-child(6) {
-      width: 7%;
+      width: 9%;
     }
   }
 
@@ -385,9 +393,9 @@
 
   &__articleBlock {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(295px, 1fr));
     grid-column-gap: 24px;
-    grid-row-gap: 40px;
+    grid-row-gap: 32px;
 
     div:first-child {
       grid-column: span 2;
@@ -403,7 +411,7 @@
 
       div {
         position: absolute;
-        top: 220px;
+        top: 200px;
         left: 30px;
 
         p:first-child {
@@ -547,14 +555,83 @@
 
 // =============================================================================
 @media (max-width: 986px) {
-  // .home__trend
   .home {
+    // .home__trends
+
     &__trends {
       width: 666px;
     }
 
     &__container {
       @include adaptiveValue('gap', 140, 60, 986, 320, 1);
+    }
+  }
+
+  .market {
+    // .market__container
+
+    &__container {
+    }
+
+    // .market__title
+
+    &__title {
+    }
+
+    // .market__list
+
+    &__list {
+      overflow-x: scroll;
+    }
+
+    // .market__listHeader
+
+    &__listHeader {
+    }
+
+    // .market__nameTitle
+
+    &__nameTitle {
+    }
+
+    // .market__priceTitle
+
+    &__priceTitle {
+    }
+
+    // .market__changeTitle
+
+    &__changeTitle {
+    }
+
+    // .market__capTitle
+
+    &__capTitle {
+    }
+
+    // .market__sortedTitle
+
+    &__sortedTitle {
+    }
+
+    // .market__listItmes
+
+    &__listItmes {
+    }
+
+    // .market__pag
+
+    &__pag {
+    }
+
+    // .market__pagList
+
+    &__pagList {
+    }
+
+    // .market__pagItem
+
+    &__pagItem {
     }
   }
 }
@@ -569,18 +646,52 @@
       padding: 12px;
     }
   }
+
+  .learn {
+    &__articleBlock {
+      display: grid;
+      grid-template-columns: repeat(1, minmax(295px, 1fr));
+      grid-column-gap: 24px;
+      grid-row-gap: 32px;
+
+      div:first-child {
+        grid-column: span 1;
+        position: relative;
+        color: #ecf1f0;
+
+        img {
+          width: 100%;
+          object-fit: cover;
+          height: 355px;
+          border-radius: 18px;
+        }
+
+        div {
+          position: absolute;
+          top: 200px;
+          left: 30px;
+
+          p:first-child {
+            font-size: 24px;
+            color: #ecf1f0;
+          }
+        }
+      }
+    }
+  }
 }
 // =============================================================================
 
 // =============================================================================
 @media (max-width: 768px) {
   .home {
-    @include adaptiveValue('padding-top', 160, 60, 768, 320, 1);
-    @include adaptiveValue('padding-bottom', 160, 60, 768, 320, 1);
+    @include adaptiveValue('padding-top', 160, 60, 1024, 320, 1);
+    @include adaptiveValue('padding-bottom', 160, 60, 1024, 320, 1);
 
     // .home__container
 
     &__container {
+      @include adaptiveValue('padding', 12, 16, 425, 320, 1);
     }
 
     // .home__info
@@ -603,6 +714,26 @@
     // .home__trends
 
     &__trends {
+    }
+  }
+
+  .market {
+    &__container {
+      @include adaptiveValue('padding', 24, 12, 425, 320, 1);
+    }
+  }
+
+  .about {
+    @include adaptiveValue('padding-bottom', 200, 100, 1024, 768, 1);
+
+    &__container {
+      @include adaptiveValue('padding', 24, 12, 425, 320, 1);
+    }
+  }
+
+  .learn {
+    &__container {
+      @include adaptiveValue('padding', 24, 12, 425, 320, 1);
     }
   }
 }
