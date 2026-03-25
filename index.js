@@ -107,8 +107,6 @@ function trendLabelAnimation() {
    } else {
       index = 0
    }
-
-   console.log(index)
 }
 
 
@@ -268,4 +266,5 @@ articles.forEach(item => {
       </div>
    `
 })
+
 
