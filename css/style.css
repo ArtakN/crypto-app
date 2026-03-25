@@ -6167,11 +6167,6 @@ readers do not read off random characters that represent icons */
   border: 0px;
 }
 
-* {
-  scrollbar-width: thin; /* "auto" or "thin" */
-  scrollbar-color: #0fae96 #dfe4ef;
-}
-
 *,
 *:before,
 *:after {
@@ -6470,11 +6465,6 @@ body {
   padding: 0px;
   margin: 0px;
   border: 0px;
-}
-
-* {
-  scrollbar-width: thin; /* "auto" or "thin" */
-  scrollbar-color: #0fae96 #dfe4ef;
 }
 
 *,
@@ -13525,25 +13515,6 @@ h2 {
   line-height: 122.222%;
 }
 
-* {
-  scrollbar-width: thin;
-  scrollbar-color: #0fae96 #dfe4ef;
-}
-
-*::-webkit-scrollbar {
-  width: 10px;
-}
-
-*::-webkit-scrollbar-track {
-  background: #dfe4ef;
-}
-
-*::-webkit-scrollbar-thumb {
-  background: #0fae96;
-  border-radius: 999px;
-  border: 2px solid #dfe4ef;
-}
-
 .learn__articleBlock > .article:first-child {
   grid-column: span 1;
   position: static;
@@ -13565,15 +13536,4 @@ h2 {
   font-size: inherit;
 }
 
-:root[data-theme=dark] * {
-  scrollbar-color: #0fae96 #280132;
-}
-
-:root[data-theme=dark] *::-webkit-scrollbar-track {
-  background: #280132;
-}
-
-:root[data-theme=dark] *::-webkit-scrollbar-thumb {
-  border-color: #280132;
-}
 
