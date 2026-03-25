@@ -677,3 +677,24 @@
   }
 }
 // =============================================================================
+
+.learn__articleBlock > .article:first-child {
+  grid-column: span 1;
+  position: static;
+  color: var(--main-color);
+  background: var(--card-bg);
+}
+
+.learn__articleBlock > .article:first-child .article__img {
+  height: 195px;
+  border-radius: 18px 18px 0 0;
+}
+
+.learn__articleBlock > .article:first-child .article__textBlock {
+  position: static;
+}
+
+.learn__articleBlock > .article:first-child .article__title {
+  color: var(--title-color);
+  font-size: inherit;
+}

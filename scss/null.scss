@@ -4,6 +4,25 @@
   border: 0px;
 }
 
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--hover-color) var(--header-bg);
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--header-bg);
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--hover-color);
+  border-radius: 999px;
+  border: 2px solid var(--header-bg);
+}
+
 *,
 *:before,
 *:after {
@@ -83,3 +102,4 @@ h6 {
   font-weight: inherit;
   font-size: inherit;
 }
+
